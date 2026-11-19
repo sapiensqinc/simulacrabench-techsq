@@ -1,0 +1,23 @@
+# v30: a build that ships a TabPFN-3.5 checkpoint needs tabpfn 9.0.0 (8.5.0
+# does not register that model version). Score-neutral for the v3 family
+# (v3m reproduced 8.5.0 to the fourth decimal on the real-survey ruler and on
+# the UNHCR / World Bank fixtures). 9.0.0 adds skrub as a hard dependency,
+# which pulls jinja2, pydot and cloudpickle; matplotlib moved from an extra
+# to a hard dependency. All pinned to the versions validated locally
+# (_weights/tabpfn_3_5/tp9). Builds without a 3.5 checkpoint keep
+# requirements.txt (8.5.0) -- no gain, only build risk.
+tabpfn==9.0.0
+skrub==0.10.1
+matplotlib==3.11.2
+jinja2==3.1.6
+pydot==4.0.1
+cloudpickle==3.1.2
+# v21: Google TabFM 1.0 (in-context tabular model). Pure-Python package; the
+# weights come through models.txt. Pinned to the versions validated locally.
+tabfm==1.0.1
+absl-py==2.5.0
+jaxtyping==0.2.38
+typeguard==2.13.3
+# v28: the vendored causilo package reads available host memory through psutil,
+# which the hosted image does not carry.
+psutil==7.2.2

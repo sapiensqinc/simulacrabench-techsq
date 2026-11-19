@@ -1,0 +1,9 @@
+Kumo-Tabular (large classifier) by NVIDIA, weights under OpenMDW-1.1 (LICENSE-kumo.txt),
+from https://huggingface.co/nvidia/Kumo-Tabular revision v1.0.1 (large/classifier.pt),
+re-saved as bfloat16 safetensors without other changes.
+Inference code: sdm/ = NVIDIA structured-data-models @ 842c408fe2a8711bdf2e7cff4bfbe54266d6b940,
+Apache-2.0 (LICENSE-sdm-code.txt), unmodified.
+MODIFIED (2026-10-08): the shipped weights are Kumo-Tabular large continued-pretrained for
+35,000 steps (the last 5,000 on 4k-15k-row tasks) (AdamW lr 1e-6, one task per step) on public survey tables (Afrobarometer,
+US Census Household Pulse, NHIS, PIAAC, PISA, Wellcome Global Monitor 2018), then saved
+as bfloat16. Architecture and code unchanged.
