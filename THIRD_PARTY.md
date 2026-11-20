@@ -14,7 +14,7 @@ Our own code is under Apache-2.0 (`LICENSE`). It covers `submission/main.py`, `s
 | Archive file | Model | Revision | Licence | Where to get it | Notes |
 |---|---|---|---|---|---|
 | `cpt_xw_step60000-bf16.ckpt` | TabPFN-3.5 multiclass, **modified by us** (CPT) | base `Prior-Labs/tabpfn_3_5` @ `06bf2ba35c80a92a3b9abb436b99cf49e7a0365e` | TABPFN-3.5 Non-Commercial License | this repository's release | `NOTICE-v35-cpt.md`, `LICENSE-v35mh.txt` |
-| `kumo-tabular-large-classifier-bf16.safetensors` | Kumo-Tabular large classifier, **modified by us** (CPT) | base `nvidia/Kumo-Tabular` v1.0.1 = `b2f5a9d6404e3574df6c30cc6ae66a30b8e4f06f` | OpenMDW-1.1 | this repository's release | `NOTICE-kumo.txt`, `LICENSE-kumo.txt` |
+| `kumo-tabular-large-classifier-bf16.safetensors` | Kumo-Tabular large classifier, **modified by us** (CPT) | base `nvidia/Kumo-Tabular` v1.0.1 = commit `3c3e10bbdb590ace29e7026847f92db3c603096d` (tag object `b2f5a9d6404e3574df6c30cc6ae66a30b8e4f06f`) | OpenMDW-1.1 | this repository's release | `NOTICE-kumo.txt`, `LICENSE-kumo.txt` |
 | `exaone-tabular-classifier-v1_default.safetensors` | EXAONE-Tabular v1 classifier, unmodified | `LG-AI-Research/EXAONE-Tabular` @ `093ad1c2613e1e95d26df8610451d2e02ed53cbe` | EXAONE AI Model License 1.2-NC | Hugging Face only (`scripts/fetch_weights.sh`); not redistributed here | `NOTICE-exa.txt`, `LICENSE-exa-weights.txt` |
 | (none, prefetched through `models.txt`) | TabPFN-v2-clf, fallback only | `Prior-Labs/TabPFN-v2-clf` @ `f851f2a3c941544733b712d8c0f96dfae9b28862` | Prior Labs licence (`LICENSE.txt` on HF) | Hugging Face | — |
 

@@ -1,18 +1,18 @@
 # SimulacraBench: survey-pretrained tabular foundation models (team `techsq`)
 
-This is the code for team **techsq**'s test-phase submission to the [SimulacraBench](https://simulacrabench.org) competition (NeurIPS 2026 Competition Track). It accompanies our technical report on OpenReview, *SimulacraBench Technical Report: Survey-Pretrained Tabular Foundation Models, Fine-Tuned and Judged Inside the Container*.
+This is the code for team **techsq**'s test-phase submission to the [SimulacraBench](https://simulacrabench.org) competition (NeurIPS 2026 Competition Track). It accompanies our technical report on OpenReview, *SimulacraBench Technical Report: Survey-Pretrained Tabular Foundation Models, Adapted and Validated in the Evaluation Container*.
 
 The method predicts each `PREDICT` answer's distribution from the `GIVEN` columns with in-context tabular foundation models:
 
 - **Primary:** TabPFN-3.5, continued-pretrained offline on public survey microdata.
 - **Partner:** Kumo-Tabular large, continued-pretrained offline and fine-tuned per instrument inside the container.
-- **Selection:** the container keeps a component only if it improves a held-out slice.
+- **Selection:** feature views, partner weights and a probability calibration are chosen on the visible `DEV` block, used as an internal validation split.
 
 The report has the full description.
 
 | Codabench Test submission 1055650 | Grand | UNICEF | World Bank | UNHCR |
 |---|---|---|---|---|
-| skill (leaderboard, 2 decimals) | 0.49 | 0.34 | 0.24 | 0.89 |
+| skill (leaderboard, 2 decimals; 0 = crowd marginal) | 0.49 | 0.34 | 0.24 | 0.89 |
 
 ## What was submitted
 
@@ -24,7 +24,7 @@ sha256(Q35n.zip) = 75edc57f7ecddc0d081e58cb2ee8ab1412803f1c14baa9247bf001c9b0632
 
 - **`submission/`** is a byte-identical copy of the archive minus its three weight files: 190 files, including `main.py`, `requirements.txt` and `models.txt`.
 - **`MANIFEST.sha256`** lists the sha256 of all 193 archive files, weights included.
-- **The commit tagged `test-1055650`** is the commit cited in the report.
+- **The commit tagged `test-1055650`** (`3b9b1479`) is the commit cited in the report. Later commits on `main` change documentation only.
 
 ## Repository layout
 
@@ -91,7 +91,7 @@ See [`cpt/README.md`](cpt/README.md). The run took about 10.3 GPU-hours on one 9
 **Pretrained models.** Each model is pinned to a Hugging Face revision; [`THIRD_PARTY.md`](THIRD_PARTY.md) lists them.
 
 - TabPFN-3.5 multiclass @ `06bf2ba3`, plus our CPT
-- Kumo-Tabular large classifier v1.0.1 @ `b2f5a9d6`, plus our CPT
+- Kumo-Tabular large classifier v1.0.1 = commit `3c3e10bb` (tag object `b2f5a9d6`), plus our CPT
 - EXAONE-Tabular v1 classifier @ `093ad1c2`
 - TabPFN-v2-clf @ `f851f2a3`, fallback only
 

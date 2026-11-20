@@ -5,7 +5,7 @@ This directory rebuilds the two checkpoints we changed. The archive ships them a
 | Archive file | From | Steps | sha256 |
 |---|---|---|---|
 | `cpt_xw_step60000-bf16.ckpt` | TabPFN-3.5 multiclass, `Prior-Labs/tabpfn_3_5` @ `06bf2ba3` | 40,000 + 20,000 | `a11fb013…62c2aa4c` |
-| `kumo-tabular-large-classifier-bf16.safetensors` | Kumo-Tabular large classifier, `nvidia/Kumo-Tabular` v1.0.1 @ `b2f5a9d6` | 15,000 + 15,000 + 5,000 | `f72465b4…85d2228e` |
+| `kumo-tabular-large-classifier-bf16.safetensors` | Kumo-Tabular large classifier, `nvidia/Kumo-Tabular` v1.0.1 = commit `3c3e10bb` (tag object `b2f5a9d6`) | 15,000 + 15,000 + 5,000 | `f72465b4…85d2228e` |
 
 No competition data is used here. All training material is the public survey microdata listed below.
 
@@ -18,7 +18,7 @@ TabPFN-3.5 multiclass (fp32, HF 06bf2ba3)
             └─ cpt2.py +20k steps, 19 sources, lr 3e-7, seed 9 ─► runs/cpt_xw/step60000.ckpt
                  └─ to_bf16.py ─► cpt_xw_step60000-bf16.ckpt        (archive)
 
-Kumo-Tabular large classifier (HF v1.0.1 = b2f5a9d6)
+Kumo-Tabular large classifier (HF v1.0.1 = commit 3c3e10bb, tag object b2f5a9d6)
   └─ cpt_kumo.py 15k steps, 20 sources, lr 1e-6, seed 11 ─► runs/kcpt_a/step15000
        └─ cpt_kumo.py +15k, seed 21 ─────────────────────────► runs/kcpt_a2/step15000
             └─ cpt_kumo.py +5k, 4k–15k-row tasks, seed 31 ──► runs/kcpt_kd/step05000.safetensors (archive)
